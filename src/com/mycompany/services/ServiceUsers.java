@@ -14,11 +14,9 @@ import com.codename1.ui.ComboBox;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.TextField;
 import com.codename1.ui.spinner.Picker;
-import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.SessionManager;
 import com.mycompany.utils.Statics;
 import java.util.Map;
-import java.util.Vector;
 
 /**
  *
@@ -63,21 +61,15 @@ public class ServiceUsers {
             Dialog.show("Erreur","Veuillez remplir les champs","OK",null);
             
         }
-        System.out.println("com.mycompany.services.ServiceUsers.signup()"+firstname.getText());
-        System.out.println("com.mycompany.services.ServiceUsers.signup()"+lastname.getText());
-        System.out.println("com.mycompany.services.ServiceUsers.signup()"+email.getText());
-        System.out.println("com.mycompany.services.ServiceUsers.signup()"+password.getText());
-        System.out.println("com.mycompany.services.ServiceUsers.signup()"+date_naissance.getText());
-        System.out.println("com.mycompany.services.ServiceUsers.signup()"+roles.getSelectedItem().toString());
+      
         
         //hethi wa9t tsir execution ta3 url 
         req.addResponseListener((e)-> {
-         
             //njib data ly7atithom fi form 
             byte[]data = (byte[]) e.getMetaData();//lazm awl 7aja n7athrhom ke meta data ya3ni na5o id ta3 kol textField 
             String responseData = new String(data);//ba3dika na5o content 
-            
             System.out.println("data ===>"+responseData);
+            Dialog.show("Success",responseData,"OK",null);
         }
         );
         
@@ -91,10 +83,10 @@ public class ServiceUsers {
     
         //SignIn
     
-    public void signin(TextField email,TextField password, Resources rs ) {
+    public void signin(TextField email,TextField password) {
         
         
-        String url = Statics.BASE_URL+"/user/signin?email="+email.getText().toString()+"&password="+password.getText().toString();
+        String url = Statics.BASE_URL+"/user/signIn?email="+email.getText().toString()+"&password="+password.getText().toString();
         req = new ConnectionRequest(url, false); //false ya3ni url mazlt matba3thtich lel server
         req.setUrl(url);
         
@@ -107,7 +99,7 @@ public class ServiceUsers {
             
             try {
             
-            if(json.equals("failed")) {
+            if(json.equals("password invalid")) {
                 Dialog.show("Echec d'authentification","Email ou mot de passe éronné","OK",null);
             }
             else {
@@ -121,11 +113,16 @@ public class ServiceUsers {
                 float id = Float.parseFloat(user.get("id").toString());
                 SessionManager.setId((int)id);//jibt id ta3 user ly3ml login w sajltha fi session ta3i
                 
-                SessionManager.setPassowrd(user.get("password").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("id").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("firstname").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("lastname").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("email").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("roles").toString());
                 SessionManager.setFirstname(user.get("firstname").toString());
                 SessionManager.setLastname(user.get("lastname").toString());
                 SessionManager.setEmail(user.get("email").toString());
-                
+                SessionManager.setRole(user.get("roles").toString());
+                Dialog.show("Success","Welcome","OK",null);
                 //photo 
                 
                 //if(user.get("photo") != null)
