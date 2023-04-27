@@ -14,6 +14,8 @@ import com.codename1.ui.ComboBox;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.TextField;
 import com.codename1.ui.spinner.Picker;
+import com.mycompany.myapp.AddProductForm;
+import com.mycompany.myapp.HomeForm;
 import com.mycompany.myapp.SessionManager;
 import com.mycompany.utils.Statics;
 import java.util.Map;
@@ -51,7 +53,8 @@ public class ServiceUsers {
     public void signup(TextField firstname,TextField lastname,TextField password,TextField email,Picker date_naissance, ComboBox<String> roles) {
         
         String url = Statics.BASE_URL+"/user/signup?firstname="+firstname.getText().toString()+"&lastname="+lastname.getText().toString()+"&email="+email.getText().toString()+
-                "&password="+password.getText().toString()+"&date_naissance="+date_naissance+"&roles="+roles.getSelectedItem().toString();
+                "&password="+password.getText().toString()+"&date_naissance="+date_naissance.toString()+"&roles="+roles.getSelectedItem().toString();
+        
         
         req.setUrl(url);
        
@@ -113,25 +116,12 @@ public class ServiceUsers {
                 float id = Float.parseFloat(user.get("id").toString());
                 SessionManager.setId((int)id);//jibt id ta3 user ly3ml login w sajltha fi session ta3i
                 
-                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("id").toString());
-                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("firstname").toString());
-                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("lastname").toString());
-                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("email").toString());
-                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("roles").toString());
                 SessionManager.setFirstname(user.get("firstname").toString());
                 SessionManager.setLastname(user.get("lastname").toString());
                 SessionManager.setEmail(user.get("email").toString());
                 SessionManager.setRole(user.get("roles").toString());
                 Dialog.show("Success","Welcome","OK",null);
-                //photo 
-                
-                //if(user.get("photo") != null)
-                  //  SessionManager.setPhoto(user.get("photo").toString());
-                
-                
-                //if(user.size() >0 ) // l9a user
-                   // new ListReclamationForm(rs).show();//yemchi lel list reclamation
-                    //new AjoutReclamationForm(rs).show();
+                new AddProductForm();
                     
                 }
             
