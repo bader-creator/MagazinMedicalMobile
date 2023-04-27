@@ -118,12 +118,7 @@ public class ServiceUsers {
                 System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("lastname").toString());
                 System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("email").toString());
                 System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("roles").toString());
-                SessionManager.setFirstname(user.get("firstname").toString());
-                SessionManager.setLastname(user.get("lastname").toString());
-                SessionManager.setEmail(user.get("email").toString());
-                SessionManager.setRole(user.get("roles").toString());
-                Dialog.show("Success","Welcome","OK",null);
-                //photo 
+              
                 
                 //if(user.get("photo") != null)
                   //  SessionManager.setPhoto(user.get("photo").toString());
