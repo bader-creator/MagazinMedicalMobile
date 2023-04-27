@@ -22,8 +22,7 @@ public class SessionManager {
     private static String firstname ; 
     private static String lastname ; 
     private static String email; 
-    private static String passowrd ;
-    private static String photo;
+    private static String role;
 
     public static Preferences getPref() {
         return pref;
@@ -65,21 +64,17 @@ public class SessionManager {
          pref.set("email",email);
     }
 
-    public static String getPassowrd() {
-        return pref.get("passowrd",passowrd);
+    public static String getRole() {
+        return role;
     }
 
-    public static void setPassowrd(String passowrd) {
-         pref.set("passowrd",passowrd);
+    public static void setRole(String role) {
+        SessionManager.role = role;
     }
 
-    public static String getPhoto() {
-        return pref.get("photo",photo);
-    }
+  
 
-    public static void setPhoto(String photo) {
-         pref.set("photo",photo);
-    }
+   
     
     
 }

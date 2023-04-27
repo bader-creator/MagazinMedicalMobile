@@ -5,13 +5,68 @@
  */
 package com.mycompany.myapp;
 
+import com.codename1.components.OnOffSwitch;
+import com.codename1.ui.Button;
+import com.codename1.ui.Component;
+import com.codename1.ui.Container;
+import com.codename1.ui.Dialog;
+import com.codename1.ui.Display;
+import com.codename1.ui.Form;
+import com.codename1.ui.Label;
+import com.codename1.ui.TextField;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Border;
+import com.codename1.ui.spinner.Picker;
+import com.mycompany.services.ServiceUsers;
+
 
 
 /**
  *
  * @author Lenovo
  */
-public class SignInForm {
+public class SignInForm extends BaseForm{
+    
+    
+    public SignInForm(){
+        
+        Form f = new Form("Sign in", BoxLayout.yCenter());
+        TextField email=new TextField("", "Email");
+        TextField password=new TextField("", "Password");
+        password.setConstraint(TextField.PASSWORD);
+        
+        Container container = new Container(new BorderLayout());
+        Button inscription = new Button("Inscription");
+        inscription.setUIID("Label");
+        inscription.getAllStyles().setBorder(Border.createEmpty());
+        inscription.getAllStyles().setBgTransparency(0);
+        container.add(BorderLayout.EAST, inscription);
+        
+        
+        Button btnValider= new Button("Login");
+        
+        
+        f.add(email);
+        f.add(password);
+        f.add(btnValider);
+        f.add(container);
+        f.show();
+        
+       
+        btnValider.addActionListener((ActionListener) new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                ServiceUsers.getInstance().signin(email,password);
+            }
+        });
+        
+        inscription.addActionListener(e->{
+            new SignupForm();
+        });
+    }
     
     
 }

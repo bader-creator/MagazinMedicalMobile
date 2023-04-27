@@ -57,55 +57,13 @@ public class MyApplication {
     }
 
     public void start() {
-        if (current != null) {
+        if(current != null){    
             current.show();
             return;
         }
-
-        TextModeLayout tm = new TextModeLayout(4, 2);
-        home = new Form("Home", new BorderLayout());
-        Container content = new Container(tm);
-        content.add(tm.createConstraint().horizontalSpan(2), new SpanLabel("This form adapts to OS differences in iOS and Android"));
-        
-        TextComponent name = new TextComponent().labelAndHint("Name");
-        content.add(tm.createConstraint().horizontalSpan(2), name);
-
-       // TextComponent bio = new TextComponent().labelAndHint("Bio").multiline(true).rows(3);
-       // content.add(tm.createConstraint().horizontalSpan(2), bio);
-
-        //PickerComponent gender = PickerComponent.createStrings("Male", "Female", "Other", "Unspecified").label("Gender");
-        //content.add(gender);
-
-        //PickerComponent dateOfBirth = PickerComponent.createDate(null).label("Birthday");
-        //content.add(dateOfBirth);
-        
-        content.setScrollableY(true);
-                
-        Button submit = new Button("Submit");
-        FontImage.setMaterialIcon(submit, FontImage.MATERIAL_DONE);
-        submit.addActionListener(e -> {
-            showOKForm(name.getField().getText());
-        });
-        
-        home.add(CENTER, content);
-        home.add(SOUTH, submit);
-        
-        Validator val = new Validator();
-        val.setShowErrorMessageForFocusedComponent(true);
-        val.addConstraint(name, 
-                new GroupConstraint(
-                        new LengthConstraint(2), 
-                        new RegexConstraint("^([a-zA-Z ]*)$", "Please only use latin characters for name"))).
-                addSubmitButtons(submit);
-
-        home.show();
-    }
-
-    private void showOKForm(String name) {
-        Form f = new Form("Thanks", BoxLayout.y());
-        f.add(new SpanLabel("Thanks " + name + " for your submission. You can press the back arrow and try again"));
-        f.getToolbar().setBackCommand("", e -> home.showBack());
-        f.show();
+        //houni awl interface yet7al
+        new SignInForm(); //n7oto signup bch yjibha awl form
+       // new SignInForm(theme).show();
     }
     
     public void stop() {

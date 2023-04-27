@@ -13,11 +13,10 @@ import com.codename1.io.NetworkManager;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.TextField;
-import com.codename1.ui.util.Resources;
+import com.codename1.ui.spinner.Picker;
 import com.mycompany.myapp.SessionManager;
 import com.mycompany.utils.Statics;
 import java.util.Map;
-import java.util.Vector;
 
 /**
  *
@@ -49,10 +48,10 @@ public class ServiceUsers {
     }
     
         //Signup
-    public void signup(TextField firstname,TextField lastname,TextField password,TextField email,TextField confirmPassword, ComboBox<String> roles , Resources res ) {
+    public void signup(TextField firstname,TextField lastname,TextField password,TextField email,Picker date_naissance, ComboBox<String> roles) {
         
         String url = Statics.BASE_URL+"/user/signup?firstname="+firstname.getText().toString()+"&lastname="+lastname.getText().toString()+"&email="+email.getText().toString()+
-                "&password="+password.getText().toString()+"&roles="+roles.getSelectedItem().toString();
+                "&password="+password.getText().toString()+"&date_naissance="+date_naissance+"&roles="+roles.getSelectedItem().toString();
         
         req.setUrl(url);
        
@@ -62,15 +61,15 @@ public class ServiceUsers {
             Dialog.show("Erreur","Veuillez remplir les champs","OK",null);
             
         }
+      
         
         //hethi wa9t tsir execution ta3 url 
         req.addResponseListener((e)-> {
-         
             //njib data ly7atithom fi form 
             byte[]data = (byte[]) e.getMetaData();//lazm awl 7aja n7athrhom ke meta data ya3ni na5o id ta3 kol textField 
             String responseData = new String(data);//ba3dika na5o content 
-            
             System.out.println("data ===>"+responseData);
+            Dialog.show("Success",responseData,"OK",null);
         }
         );
         
@@ -84,10 +83,10 @@ public class ServiceUsers {
     
         //SignIn
     
-    public void signin(TextField email,TextField password, Resources rs ) {
+    public void signin(TextField email,TextField password) {
         
         
-        String url = Statics.BASE_URL+"/user/signin?email="+email.getText().toString()+"&password="+password.getText().toString();
+        String url = Statics.BASE_URL+"/user/signIn?email="+email.getText().toString()+"&password="+password.getText().toString();
         req = new ConnectionRequest(url, false); //false ya3ni url mazlt matba3thtich lel server
         req.setUrl(url);
         
@@ -100,7 +99,7 @@ public class ServiceUsers {
             
             try {
             
-            if(json.equals("failed")) {
+            if(json.equals("password invalid")) {
                 Dialog.show("Echec d'authentification","Email ou mot de passe éronné","OK",null);
             }
             else {
@@ -114,15 +113,20 @@ public class ServiceUsers {
                 float id = Float.parseFloat(user.get("id").toString());
                 SessionManager.setId((int)id);//jibt id ta3 user ly3ml login w sajltha fi session ta3i
                 
-                SessionManager.setPassowrd(user.get("password").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("id").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("firstname").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("lastname").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("email").toString());
+                System.out.println("com.mycompany.services.ServiceUsers.signin()"+user.get("roles").toString());
                 SessionManager.setFirstname(user.get("firstname").toString());
                 SessionManager.setLastname(user.get("lastname").toString());
                 SessionManager.setEmail(user.get("email").toString());
-                
+                SessionManager.setRole(user.get("roles").toString());
+                Dialog.show("Success","Welcome","OK",null);
                 //photo 
                 
-                if(user.get("photo") != null)
-                    SessionManager.setPhoto(user.get("photo").toString());
+                //if(user.get("photo") != null)
+                  //  SessionManager.setPhoto(user.get("photo").toString());
                 
                 
                 //if(user.size() >0 ) // l9a user

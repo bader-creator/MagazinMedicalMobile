@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/MagazineMedical/src/com/mycompany/myapp/SignInForm.java</file>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/MagazineMedical/src/com/mycompany/myapp/MyApplication.java</file>
@@ -11,5 +12,8 @@
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/MagazineMedical/src/com/mycompany/myapp/SessionManager.java</file>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/MagazineMedical/src/com/mycompany/utils/Statics.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 32bf985ea4c0b136473839414c56b43a989c0920
     </open-files>
 </project-private>
