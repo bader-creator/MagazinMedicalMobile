@@ -9,31 +9,28 @@ import com.codename1.ui.Button;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
-import com.codename1.ui.TextArea;
 import com.codename1.ui.TextField;
+import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.company.entity.Product;
 import com.mycompany.services.ServiceProduct;
-import com.codename1.ui.Toolbar;
 
 /**
  *
  * @author bader
  */
-public class AddProductForm extends BaseForm{
+public class EditProduct extends BaseForm{
     
+  
     private TextField nameField;
     private TextField priceField;
     private TextField quantityFiled;
-    private Button addButton;
+    private Button editbutton;
     
-      
-        
-        
-    
-    public AddProductForm(){
+    public EditProduct(Product product){
          
-        Form form = new Form("Add Product", BoxLayout.x());
+        Form form = new Form("Edit Product", BoxLayout.x());
         
         Toolbar toolbar = new Toolbar();
         
@@ -45,10 +42,10 @@ public class AddProductForm extends BaseForm{
         });
         form.setToolbar(toolbar);
         
-        nameField = new TextField();
-        priceField = new TextField();
-        quantityFiled = new TextField();
-        addButton = new Button("Add");
+        nameField = new TextField(product.getName());
+        priceField = new TextField(product.getPrice());
+        quantityFiled = new TextField(product.getQuantity());
+        editbutton = new Button("Update");
 
         // Set the layout manager for the form
         form.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
@@ -60,22 +57,23 @@ public class AddProductForm extends BaseForm{
         form.add(priceField);
         form.add(new Label("Quantity ;"));
         form.add(quantityFiled);
-        form.add(addButton);
+        form.add(editbutton);
         form.show();
         
         // Add an action listener to the button to handle user input
-        addButton.addActionListener(e -> {
+        editbutton.addActionListener(e -> {
             // Validate the input and save the product to the database or API
             String name = nameField.getText();
             String price = priceField.getText();
             String quantity = quantityFiled.getText();
-
-            ServiceProduct.getInstance().AddProduct(name,price,quantity);
+            product.setName(name);
+            product.setPrice(price);
+            product.setQuantity(quantity);
+            ServiceProduct.getInstance().modifierReclamation(product);
             
             nameField.setText("");
             priceField.setText("");
             quantityFiled.setText("");
-            
         });
          
      }

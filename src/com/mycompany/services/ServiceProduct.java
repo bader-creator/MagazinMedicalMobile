@@ -17,6 +17,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.spinner.Picker;
 import com.company.entity.Product;
 import com.mycompany.myapp.AddProductForm;
+import com.mycompany.myapp.ListProduct;
 import com.mycompany.myapp.SessionManager;
 import com.mycompany.utils.Statics;
 import java.io.IOException;
@@ -75,6 +76,7 @@ public class ServiceProduct {
             String responseData = new String(data);//ba3dika na5o content 
             System.out.println("data ===>"+responseData);
             Dialog.show("Success",responseData,"OK",null);
+            new ListProduct();
         }
         );
         
@@ -103,8 +105,8 @@ public class ServiceProduct {
                     List<Map<String,Object>> listOfMaps =  (List<Map<String,Object>>) mapProducts.get("root");
                     
                     for(Map<String, Object> obj : listOfMaps) {
+                        
                        Product p=new Product();
-                        //Session 
                        float id = Float.parseFloat(obj.get("id").toString());
                        p.setId((int)id);//jibt id ta3 user ly3ml login w sajltha fi session ta3i
                        p.setName(obj.get("name").toString());
@@ -164,7 +166,7 @@ public class ServiceProduct {
     }
      
        //Delete 
-    public boolean deleteProduct(int id ) {
+    public  void deleteProduct(int id ) {
         String url = Statics.BASE_URL +"/product/Delete?idproduct="+id;
         
         req.setUrl(url);
@@ -172,30 +174,35 @@ public class ServiceProduct {
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
+                
+                    byte[]data = (byte[]) evt.getMetaData();
+                    String responseData = new String(data);
+                    Dialog.show("Success",responseData,"OK",null);
+                    req.removeResponseListener(this);
                     
-                    req.removeResponseCodeListener(this);
             }
         });
         
         NetworkManager.getInstance().addToQueueAndWait(req);
-        return  resultOk;
     }
     
       //Update 
     public boolean modifierReclamation(Product product) {
-        String url = Statics.BASE_URL +"/product/edit?id="+product.getId()+"&name="+product.getName()+"&PRICE="+product.getPrice()+"&quantity="+product.getQuantity();
+        String url = Statics.BASE_URL +"/product/edit?idproduct="+product.getId()+"&name="+product.getName()+"&price="+product.getPrice()+"&quantity="+product.getQuantity();
         req.setUrl(url);
         
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
+               // System.out.println("com.mycompany.services.ServiceUsers.signin()"+req.getResponseData());
                 resultOk = req.getResponseCode() == 200 ;  // Code response Http 200 ok
                 req.removeResponseListener(this);
+                //Dialog.show("Success",responseData,"OK",null);
             }
         });
         
-    NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
-    return resultOk;
+        NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
+        return resultOk;
         
     }
 }
