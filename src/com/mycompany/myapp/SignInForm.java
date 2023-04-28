@@ -5,21 +5,15 @@
  */
 package com.mycompany.myapp;
 
-import com.codename1.components.OnOffSwitch;
 import com.codename1.ui.Button;
-import com.codename1.ui.Component;
 import com.codename1.ui.Container;
-import com.codename1.ui.Dialog;
-import com.codename1.ui.Display;
 import com.codename1.ui.Form;
-import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Border;
-import com.codename1.ui.spinner.Picker;
 import com.mycompany.services.ServiceUsers;
 
 

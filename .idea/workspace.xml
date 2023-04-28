@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c92a84c2-32cd-4549-96a3-bac06d1a4554" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/AddProductForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/HomeForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/com/mycompany/myapp/AddProductForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/com/mycompany/myapp/HomeForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mycompany/myapp/AddProductForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mycompany/myapp/HomeForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mycompany/services/ServiceProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Versions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Versions.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/AnyObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/SignupForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/SignupForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/SignupForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/SignupForm$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/SignupForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/mycompany/myapp/SignupForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/mycompany/services/ServiceUsers.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/mycompany/services/ServiceUsers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/com/mycompany/myapp/AnyObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/com/mycompany/myapp/SignupForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/com/mycompany/myapp/SignupForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/com/mycompany/services/ServiceUsers.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/com/mycompany/services/ServiceUsers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/MagazineMedical.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/MagazineMedical.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/impl/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mycompany/myapp/SignupForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mycompany/myapp/SignupForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mycompany/services/ServiceUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mycompany/services/ServiceUsers.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProjectId" id="2P1h13iCJ7EqoUjlCNatkMLlUoW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Lenovo/Documents/NetBeansProjects/MagazineMedical",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c92a84c2-32cd-4549-96a3-bac06d1a4554" name="Changes" comment="" />
+      <created>1682630276756</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682630276756</updated>
+      <workItem from="1682630277938" duration="52000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

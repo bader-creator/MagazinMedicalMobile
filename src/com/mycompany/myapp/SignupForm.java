@@ -73,7 +73,7 @@ public class SignupForm extends BaseForm{
             }
         });
         
-        btnValider.addActionListener((ActionListener) new ActionListener() {
+        aleradyhaveaccount.addActionListener((ActionListener) new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 new SignInForm();
